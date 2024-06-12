@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/styled_text.dart';
 
@@ -34,7 +33,9 @@ class StartScreen extends StatelessWidget {
             height: 40,
           ),
           OutlinedButton.icon(
-            onPressed: () => {},
+            onPressed: () => {
+              //...
+            },
             icon: const Icon(Icons.arrow_right_alt_sharp),
             label: const StyledText(
               "Start Quiz",
