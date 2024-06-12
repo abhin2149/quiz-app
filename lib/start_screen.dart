@@ -6,44 +6,32 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: const BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 3, 34, 102),
-            Color.fromARGB(255, 75, 20, 138)
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/quiz-logo.png',
-              width: 280,
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            'assets/images/quiz-logo.png',
+            width: 280,
+          ),
+          const SizedBox(
+            height: 60,
+          ),
+          const StyledText(
+            "Learn Flutter the fun way!",
+            20,
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          CupertinoButton.filled(
+            onPressed: () => {},
+            child: const StyledText(
+              "Start Quiz",
+              15,
             ),
-            const SizedBox(
-              height: 60,
-            ),
-            const StyledText(
-              "Learn Flutter the fun way!",
-              20,
-            ),
-            const SizedBox(
-              height: 40,
-            ),
-            CupertinoButton.filled(
-              onPressed: () => {},
-              child: const StyledText(
-                "Start Quiz",
-                15,
-              ),
-            )
-          ],
-        ),
+          )
+        ],
       ),
     );
   }
