@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:quiz_app/styled_text.dart';
 
 class StartScreen extends StatelessWidget {
@@ -13,7 +14,15 @@ class StartScreen extends StatelessWidget {
           Image.asset(
             'assets/images/quiz-logo.png',
             width: 280,
+            color: const Color.fromARGB(120, 255, 255, 255),
           ),
+          // Opacity(
+          //   opacity: 0.7,
+          //   child: Image.asset(
+          //     'assets/images/quiz-logo.png',
+          //     width: 280,
+          //   ),
+          // ),
           const SizedBox(
             height: 60,
           ),
@@ -24,9 +33,10 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          CupertinoButton.filled(
+          OutlinedButton.icon(
             onPressed: () => {},
-            child: const StyledText(
+            icon: const Icon(Icons.arrow_right_alt_sharp),
+            label: const StyledText(
               "Start Quiz",
               15,
             ),
