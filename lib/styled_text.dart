@@ -11,7 +11,7 @@ class StyledText extends StatelessWidget {
   Widget build(context) {
     return Text(
       label,
-      style: TextStyle(
+      style: GoogleFonts.lato(
         color: Colors.white,
         fontSize: textSize,
       ),

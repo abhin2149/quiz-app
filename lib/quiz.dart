@@ -13,6 +13,7 @@ class Quiz extends StatefulWidget {
 
 class _QuizState extends State<Quiz> {
   String activeScreen = 'start-screen';
+  final List<String> selectedAns = [];
 
   void switchScreen() {
     setState(() {
