@@ -4,7 +4,9 @@ import 'package:quiz_app/answer_button.dart';
 import 'package:quiz_app/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen(this.chooseAns, {super.key});
+
+  final void Function(String ans) chooseAns;
 
   @override
   State<StatefulWidget> createState() {
@@ -13,9 +15,10 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
-  var quesIndex = 0;
+  int quesIndex = 0;
 
-  void onClick() {
+  void onClick(String ans) {
+    widget.chooseAns(ans);
     setState(() {
       quesIndex++;
     });
@@ -27,25 +30,28 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     return Container(
       margin: const EdgeInsets.all(40),
       child: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Text(
-            currentQues.text,
-            style: GoogleFonts.lato(
-              color: Colors.white,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Text(
+              currentQues.text,
+              style: GoogleFonts.lato(
+                color: Colors.white,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+              textAlign: TextAlign.center,
             ),
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: 50),
-          ...currentQues.getShuffledAnswers().map((ans) {
-            return AnswerButton(ans, onClick);
-          })
-        ],
-      )),
+            const SizedBox(
+              height: 50,
+            ),
+            ...currentQues.getShuffledAnswers().map((ans) {
+              return AnswerButton(ans, () => onClick(ans));
+            })
+          ],
+        ),
+      ),
     );
   }
 }
